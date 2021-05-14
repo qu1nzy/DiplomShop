@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User</title>
+</head>
+<body>
+<div>
+    <p th:text="'Id: '+${user.id}"></p>
+    <p th:text="'Login: '+${user.login}"></p>
+    <p th:text="'Password: '+${user.password}"></p>
+    <p th:text="'Name: '+${user.name}"></p>
+    <p th:text="'Role: '+${user.userRole}" style="color: green"></p>
+    <p th:text="'Wallet: '+${user.wallet}" style="color: blue"></p>
+</div>
+<p>Click <a th:href="@{/}">here</a> to home</p>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Basket</title>
+</head>
+<body>
+<div>
+    <h1>Basket:</h1>
+
+    <table th:if="${!session.basket.itemList.isEmpty()}">
+        <tr>
+            <th>Item model</th>
+            <th>Item category</th>
+            <th>price</th>
+        </tr>
+        <tr th:each="item : ${session.basket.itemList}">
+            <td th:text="${item.model}"></td>
+            <td th:text="${item.category.name}"></td>
+            <td th:text="${item.price}"></td>
+        </tr>
+    </table>
+
+</div>
+<a th:if="${!session.basket.itemList.isEmpty()}">
+    <form th:action="@{/basket}" method="post">
+        <br>
+        <div><input type="submit" value="Add basket to order"/></div>
+        <br>
+    </form>
+</a>
+<a th:if="${session.basket.itemList.isEmpty()}">
+    <p>Basket is empty</p>
+</a>
+<p>
+    <a href="/" th:href="@{/}">Return to home</a>
+</p>
+</body>
+</html>

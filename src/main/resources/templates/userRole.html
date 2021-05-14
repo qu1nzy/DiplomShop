@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UserRole</title>
+</head>
+<body>
+<form th:action="@{/user/role}" th:object="${id}" method="post">
+    <div class="form-group">
+        <label> Id :</label> <input type="text" class="form-control" placeholder="Enter id" name="id"
+                                    th:field="${id.id}"/>
+        <p th:if="${#fields.hasErrors('id')}" th:errors="${id.id}" style="color: red"></p>
+    </div>
+    <br>
+    <div>
+        <table>
+            <tr>
+                <td>Select User role:</td>
+                <td>
+                    <select th:name="userRole">
+                        <option th:value="USER" th:text="'USER'"></option>
+                        <option th:value="MANAGER" th:text="'MANAGER'"></option>
+                        <option th:value="ADMIN" th:text="'ADMIN'"></option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><input name="submit" type="submit" value="submit"/></td>
+            </tr>
+        </table>
+    </div>
+</form>
+<br>
+<a th:if="${marker} == 1">
+    <p style="color: green">Role is changed</p>
+</a>
+<p>Click <a th:href="@{/}">here</a> to home</p>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UserId</title>
+</head>
+<body>
+<form th:action="@{/user/userId}" th:object="${id}" method="post">
+    <div class="form-group">
+        <label> Id :</label> <input type="text" class="form-control" placeholder="Enter id" name="id" th:field="${id.id}"/>
+        <p th:if="${#fields.hasErrors('id')}" th:errors="${id.id}" style="color: red"></p>
+    </div>
+    <br>
+    <div><input type="submit" value="get user"/></div>
+</form>
+<p>Click <a th:href="@{/}">here</a> to home</p>
+</body>
+</html>

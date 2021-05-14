@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Wallet</title>
+</head>
+<body>
+<form th:action="@{/user/wallet}" th:object="${wallet}" method="post">
+    <div class="form-group">
+        <label> Wallet :</label> <input type="text" class="form-control" placeholder="Enter wallet" name="wallet" th:field="${wallet.wallet}"/>
+        <p th:if="${#fields.hasErrors('wallet')}" th:errors="${wallet.wallet}" style="color: red"></p>
+    </div>
+    <br>
+    <div><input type="submit" value="add wallet"/></div>
+</form>
+<a th:if="${marker} == 1">
+    <p style="color: green">Wallet is top up</p>
+</a>
+<p>Click <a th:href="@{/}">here</a> to go home</p>
+</body>
+</html>

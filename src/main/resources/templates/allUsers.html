@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>allUsers</title>
+</head>
+<body>
+<form th:action="@{/user/delete}" th:object="${user}" method="post">
+    <tr th:each="user : ${allUsers}">
+        <td th:text="${user.name}"></td>
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.login}"></td>
+        <td th:text="${user.password}"></td>
+        <td th:text="${user.wallet}"></td>
+        <td th:text="${user.userRole}"></td>
+        <br>
+    </tr>
+</form>
+<form th:action="@{/}" method="get">
+    <div><input type="submit" value="go to home"/></div>
+</form>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order</title>
+</head>
+<body>
+<div>
+    <div th:each="item : ${items}">
+        <p th:text="'Model: '+${item.model}"></p>
+        <p th:text="'Manufacturer: '+${item.manufacturer}"></p>
+        <p th:text="'Price: '+${item.price}"></p>
+        <p th:text="'Category: '+${item.category.name}"></p>
+        <div class="uk-card-media-top">
+            <img th:src="@{${item.image.url}}" width="300" height="300" alt="">
+        </div>
+        <form th:action="@{'/order/remove/'+${order.id}}" method="post">
+            <input type="hidden" name="itemId" th:value="${item.id}">
+            <button>remove item</button>
+        </form>
+    </div>
+    <p th:text="'Order amount: '+${price}"></p>
+    <a th:if="${marker} == 0">
+        <form th:action="@{'/order/'+${order.id}}" method="post">
+            <button>Buy items</button>
+        </form>
+    </a>
+</div>
+<p>Click <a th:href="@{/order}">here</a> to go to your orders</p>
+<p>Click <a th:href="@{/}">here</a> to home</p>
+</body>
+</html>

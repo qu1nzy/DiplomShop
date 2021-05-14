@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Categories</title>
+</head>
+<body>
+<div th:each="category : ${categories}">
+    <div>
+        <p  th:text="${category.name}"></p>
+        <a th:href="@{'/category/categories/'+${category.id}}" class="button">Check it</a>
+    </div>
+</div>
+<p>Click <a th:href="@{/}">here</a> to home</p>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AllOrdersByStatus</title>
+</head>
+<body>
+<form th:action="@{/order/allOrdersByStatus}" method='POST'>
+    <table>
+        <tr>
+            <td>Select Order Status:</td>
+            <td>
+                <select th:name="orderStatus">
+                    <option th:value="NEW" th:text="'NEW'"> </option>
+                    <option th:value="PROCESSED" th:text="'PROCESSED'"></option>
+                    <option th:value="DELIVERED" th:text="'DELIVERED'"></option>
+                </select>
+
+            </td>
+        </tr>
+        <tr>
+            <td><input name="submit" type="submit" value="submit" /></td>
+        </tr>
+    </table>
+</form>
+<p>
+    <a href="/" th:href="@{/}">Return to home</a>
+</p>
+</body>
+</html>

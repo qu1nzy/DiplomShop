@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ItemSerialNumber</title>
+</head>
+<body>
+<form th:action="@{/item/serialNumber}" th:object="${serialNumber}" method="post">
+    <div class="form-group">
+        <label> Serial Number :</label> <input type="text" class="form-control" placeholder="Enter serialNumber"
+                                               name="serialNumber" th:field="${serialNumber.serialNumber}"/>
+        <p th:if="${#fields.hasErrors('serialNumber')}" th:errors="${serialNumber.serialNumber}" style="color: red"></p>
+    </div>
+    <br>
+    <div><input type="submit" value="get item"/></div>
+</form>
+<p>Click <a th:href="@{/}">here</a> to home</p>
+</body>
+</html>

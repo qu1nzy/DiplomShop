@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Item</title>
+</head>
+<body>
+<div>
+    <p th:text="'Model: '+${item.model}"></p>
+    <p th:text="'Manufacturer: '+${item.manufacturer}"></p>
+    <p>Category: <a th:href="@{'/category/categories/'+${item.category.id}}" th:text="${item.category.name}"></a>
+    </p>
+    <p th:text="'Description: '+${item.description}"></p>
+    <p th:text="'Price: '+${item.price}"></p>
+    <p th:text="'Country manufacture: '+${item.countryManufacture}"></p>
+    <a th:if="${marker} == 0">
+        <p th:text="'Quantity: '+${quantity}"></p>
+    </a>
+    <a th:if="${marker} == 1">
+        <p th:text="'Status: '+${item.itemStatus}" style="color: red"></p>
+    </a>
+    <div class="uk-card-media-top">
+        <img th:src="@{${item.image.url}}" width="300" height="300" alt="">
+    </div>
+    <form th:action="@{/item/addToBasket}" method="post">
+        <input type="hidden" name="itemId" th:value="${item.id}">
+        <button>Want it</button>
+    </form>
+</div>
+<p>Click <a th:href="@{'/category/categories/'+${item.category.id}}">here</a> to item models</p>
+<p>Click <a th:href="@{/}">here</a> to home</p>
+</body>
+</html>

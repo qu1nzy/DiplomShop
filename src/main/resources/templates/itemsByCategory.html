@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ItemsByCategory</title>
+</head>
+<body>
+<div>
+    <p th:text="${category.name}"></p>
+    <div th:each="item : ${items}">
+        <p th:text="'Model: '+${item.model}"></p>
+        <p th:text="'Manufacturer: '+${item.manufacturer}"></p>
+        <p th:text="'Price: '+${item.price}"></p>
+        <div class="uk-card-media-top">
+            <img th:src="@{${item.image.url}}" width="300" height="300" alt="">
+        </div>
+        <a th:href="@{'/item/items/'+${item.id}}" class="button">Check it</a>
+    </div>
+</div>
+<p>Click <a th:href="@{/category/categories}">here</a> to item categories</p>
+<p>Click <a th:href="@{/}">here</a> to home</p>
+</body>
+</html>

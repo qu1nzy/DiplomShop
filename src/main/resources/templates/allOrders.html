@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AllOrders</title>
+</head>
+<body>
+<div>
+    <h1>Orders:</h1>
+
+    <table th:if="${!allOrders.isEmpty()}">
+        <tr>
+            <th>Order created date</th>
+            <th>Order status</th>
+            <th>Order delivered date</th>
+        </tr>
+        <tr th:each="order : ${allOrders}">
+            <td th:text="${order.orderCreatedDate}"></td>
+            <td th:text="${order.orderStatus}"></td>
+            <td th:text="${order.orderDeliveredDate}"></td>
+            <td>
+                <form th:action="@{'/order/'+${order.id}}" method="get">
+                    <div><input type="submit" value="Go to this order"/></div>
+                </form>
+            </td>
+        </tr>
+    </table>
+</div>
+<p>
+    <a href="/" th:href="@{/}">Return to home</a>
+</p>
+</body>
+</html>

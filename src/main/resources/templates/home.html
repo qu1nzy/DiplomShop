@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+<a th:if="${adminTemp} != 0">
+    <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
+    <a th:if="${#httpServletRequest.remoteUser} != null">
+        <p>Click <a th:href="@{/basket}">here</a> to see your basket</p>
+        <p>Click <a th:href="@{/order}">here</a> to see your orders</p>
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Sign Out"/>
+        </form>
+    </a>
+    <br>
+    <a th:if="${marker} == false">
+        <p>Click <a th:href="@{/user/registration}">here</a> to registration</p>
+        <p>Click <a th:href="@{/user/authentication}">here</a> to auth</p>
+    </a>
+    <p>Click <a th:href="@{/category/categories}">here</a> to go to all item categories</p>
+    <a th:if="${userRole} == 1">
+        <p>Click <a th:href="@{/user/role}">here</a> to change user role</p>
+    </a>
+    <a th:if="${userRole} == 1 or ${userRole} == 2">
+        <p>Click <a th:href="@{/item/allItems}">here</a> to go to all items</p>
+        <p>Click <a th:href="@{/category/add}">here</a> to add category</p>
+        <p>Click <a th:href="@{/item/add}">here</a> to add item</p>
+        <p>Click <a th:href="@{/item/status}">here</a> to see all items by status</p>
+        <p>Click <a th:href="@{/user/allUsers}">here</a> to see all users information</p>
+        <p>Click <a th:href="@{/order/all}">here</a> to see all orders</p>
+        <p>Click <a th:href="@{/order/allOrdersByStatus}">here</a> to see all orders by status</p>
+        <p>Click <a th:href="@{/user/updatePassword}">here</a> to update password</p>
+        <p>Click <a th:href="@{user/wallet}">wallet</a> to up your wallet</p>
+        <p>Click <a th:href="@{user/userId}">here</a> to get user by id</p>
+        <p>Click <a th:href="@{/item/serialNumber}">here</a> to get item by serial number</p>
+        <p style="color: blue">Wallet : <a th:text="${wallet}"></a></p>
+    </a>
+    <a th:if="${userRole} == 3">
+        <p>Click <a th:href="@{/user/updatePassword}">here</a> to update password</p>
+        <p>Click <a th:href="@{user/wallet}">wallet</a> to up your wallet</p>
+        <p style="color: blue">Wallet : <a th:text="${wallet}"></a></p>
+    </a>
+</a>
+<a th:if="${adminTemp} == 0">
+    <p>Click <a th:href="@{/user/addFirstAdmin}">here</a> to add first admin</p>
+</a>
+</body>
+</html>

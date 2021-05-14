@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ItemAdd</title>
+</head>
+<body>
+<form th:action="@{/item/add}" enctype="multipart/form-data" th:object="${item}" method="post">
+    <div class="form-group">
+        <label> Model :</label> <input type="text" class="form-control" placeholder="Enter model" name="model"
+                                       th:field="${item.model}"/>
+        <p th:if="${#fields.hasErrors('model')}" th:errors="${item.model}" style="color: red"></p>
+    </div>
+    <br>
+    <div class="form-group">
+        <label> Serial Number :</label> <input type="text" class="form-control" placeholder="Enter serialNumber"
+                                               name="serialNumber" th:field="${item.serialNumber}"/>
+        <p th:if="${#fields.hasErrors('serialNumber')}" th:errors="${item.serialNumber}" style="color: red"></p>
+    </div>
+    <br>
+    <div class="form-group">
+        <label> Category :</label> <input type="text" class="form-control" placeholder="Enter categoryName"
+                                          name="categoryName" th:field="${item.categoryName}"/>
+        <p th:if="${#fields.hasErrors('categoryName')}" th:errors="${item.categoryName}" style="color: red"></p>
+    </div>
+    <br>
+    <div class="form-group">
+        <label> Description :</label> <input size="2000" type="text" class="form-control"
+                                             placeholder="Enter description" name="description"
+                                             th:field="${item.description}"/>
+        <p th:if="${#fields.hasErrors('description')}" th:errors="${item.description}" style="color: red"></p>
+    </div>
+    <br>
+    <div class="form-group">
+        <label> Price :</label> <input type="text" class="form-control" placeholder="Enter price" name="price"
+                                       th:field="${item.price}"/>
+        <p th:if="${#fields.hasErrors('price')}" th:errors="${item.price}" style="color: red"></p>
+    </div>
+    <br>
+    <div class="form-group">
+        <label> Manufacturer :</label> <input type="text" class="form-control" placeholder="Enter manufacturer"
+                                              name="manufacturer" th:field="${item.manufacturer}"/>
+        <p th:if="${#fields.hasErrors('manufacturer')}" th:errors="${item.manufacturer}" style="color: red"></p>
+    </div>
+    <br>
+    <div class="form-group">
+        <label> Country manufacture :</label> <input type="text" class="form-control"
+                                                     placeholder="Enter countryManufacture" name="countryManufacture"
+                                                     th:field="${item.countryManufacture}"/>
+        <p th:if="${#fields.hasErrors('countryManufacture')}" th:errors="${item.countryManufacture}"
+           style="color: red"></p>
+    </div>
+    <br>
+    <div class="form-group">
+        <input type="file" multiple th:field="${item.image}">
+    </div>
+    <br>
+    <div><input type="submit" value="add item"/></div>
+</form>
+<br>
+<a th:if="${marker} == 1">
+    <p style="color: green">Item is add</p>
+</a>
+<a th:if="${marker} == 2">
+    <p style="color: red"><a th:text="${message}"></a></p>
+</a>
+<p>Click <a th:href="@{/category/add}">here</a> to add category</p>
+<p>Click <a th:href="@{/}">here</a> to home</p>
+</body>
+</html>
